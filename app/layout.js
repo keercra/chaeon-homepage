@@ -20,6 +20,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ko">
+      <head>
+        {/* 무단 우클릭 및 드래그 복사 방지 스크립트 */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              document.addEventListener('contextmenu', (e) => e.preventDefault());
+              document.addEventListener('selectstart', (e) => e.preventDefault());
+              document.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'C')) {
+                  e.preventDefault();
+                }
+              });
+            `
+          }}
+        />
+      </head>
       <body>
         <Header />
 
