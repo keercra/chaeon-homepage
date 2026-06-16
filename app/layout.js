@@ -21,6 +21,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko">
       <head>
+        {/* 검색엔진 소유권 인증 메타태그 (Vercel 환경변수 연동) */}
+        {process.env.NEXT_PUBLIC_NAVER_VERIFICATION && (
+          <meta name="naver-site-verification" content={process.env.NEXT_PUBLIC_NAVER_VERIFICATION} />
+        )}
+        {process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION && (
+          <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION} />
+        )}
+
         {/* 무단 우클릭 및 드래그 복사 방지 스크립트 */}
         <script
           dangerouslySetInnerHTML={{
