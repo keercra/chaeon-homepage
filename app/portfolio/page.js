@@ -62,7 +62,7 @@ export default function Portfolio() {
             images.map((imgUrl, idx) => (
               <div key={idx} style={{
                 width: '100%',
-                height: '300px',
+                aspectRatio: '3 / 4', // 세로로 긴 3:4 비율 적용
                 borderRadius: '12px',
                 overflow: 'hidden',
                 background: `url(${imgUrl}) center/cover no-repeat`,
