@@ -1,3 +1,9 @@
+export const metadata = {
+  title: '주요 제품 안내(광고물부착방지물, 부착방지시트) | (주)채온',
+  description: '돌출형 광고물부착방지물, 입체 육각패턴시트 등 가로등 및 전주 불법 전단지 부착을 효과적으로 차단하는 채온의 방지 기술 제품을 안내합니다.',
+  keywords: '광고물부착방지물, 부착방지시트, 육각패턴시트, 돌출형방지물, 함체형방지물',
+};
+
 export default function Products() {
   return (
     <div className="container responsive-container">
