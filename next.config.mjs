@@ -23,6 +23,7 @@ const nextConfig = {
         source: '/Company',
         destination: '/about',
         permanent: true,
+        caseSensitive: true,
       },
       {
         source: '/company',
@@ -34,12 +35,14 @@ const nextConfig = {
         source: '/Contact',
         destination: '/contact',
         permanent: true,
+        caseSensitive: true,
       },
       // 4. 시공사례 레거시 링크 우회
       {
         source: '/Portfolio',
         destination: '/portfolio',
         permanent: true,
+        caseSensitive: true,
       },
     ];
   },
