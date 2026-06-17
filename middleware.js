@@ -3,6 +3,17 @@ import { NextResponse } from 'next/server';
 export function middleware(request) {
   const { pathname } = request.nextUrl;
 
+  // 레거시 대소문자 구분 주소 리다이렉트 처리 (무한루프 방지)
+  if (pathname === '/Portfolio') {
+    return NextResponse.redirect(new URL('/portfolio', request.url), 301);
+  }
+  if (pathname === '/Contact') {
+    return NextResponse.redirect(new URL('/contact', request.url), 301);
+  }
+  if (pathname === '/Company' || pathname === '/company') {
+    return NextResponse.redirect(new URL('/about', request.url), 301);
+  }
+
   // 로그인 페이지 및 로그인 API는 검증 제외
   if (pathname === '/admin/login' || pathname === '/api/admin/login') {
     return NextResponse.next();
@@ -47,5 +58,9 @@ export const config = {
     '/admin/:path*',
     '/api/upload/:path*',
     '/api/contact/:path*',
+    '/Portfolio',
+    '/Contact',
+    '/Company',
+    '/company',
   ],
 };

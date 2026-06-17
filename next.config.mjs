@@ -18,32 +18,6 @@ const nextConfig = {
         destination: '/products',
         permanent: true,
       },
-      // 2. 회사 소개 레거시 링크 우회
-      {
-        source: '/Company',
-        destination: '/about',
-        permanent: true,
-        caseSensitive: true,
-      },
-      {
-        source: '/company',
-        destination: '/about',
-        permanent: true,
-      },
-      // 3. 문의하기 레거시 링크 우회
-      {
-        source: '/Contact',
-        destination: '/contact',
-        permanent: true,
-        caseSensitive: true,
-      },
-      // 4. 시공사례 레거시 링크 우회
-      {
-        source: '/Portfolio',
-        destination: '/portfolio',
-        permanent: true,
-        caseSensitive: true,
-      },
     ];
   },
 };
