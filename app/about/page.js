@@ -13,12 +13,12 @@ export default function About() {
           <div className="about-beforeafter-flex">
             <img 
               src="/images/시공전후1.png" 
-              alt="시공 전" 
+              alt="가로등 전신주 광고물부착방지물 시공 전 불법 전단지 부착 상태" 
               className="about-beforeafter-image" 
             />
             <img 
               src="/images/시공전후2.png" 
-              alt="시공 후" 
+              alt="(주)채온 광고물부착방지물 시공 후 깨끗해진 전신주 모습" 
               className="about-beforeafter-image" 
             />
           </div>
@@ -39,7 +39,7 @@ export default function About() {
           <div className="about-cert-img-wrap">
             <img 
               src="/images/실용신안등록증-편집.png" 
-              alt="실용신안등록증" 
+              alt="(주)채온 광고물부착방지물 특허 실용신안등록증" 
               className="about-cert-image" 
             />
           </div>
@@ -53,7 +53,7 @@ export default function About() {
           <div className="about-cert-img-wrap">
             <img 
               src="/images/디자인등록증-편집.png" 
-              alt="디자인등록증" 
+              alt="(주)채온 육각패턴 부착방지시트 특허 디자인등록증" 
               className="about-cert-image" 
             />
           </div>

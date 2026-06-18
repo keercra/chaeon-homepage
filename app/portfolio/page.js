@@ -65,7 +65,6 @@ export default function Portfolio() {
                 aspectRatio: '3 / 4', // 세로로 긴 3:4 비율 적용
                 borderRadius: '12px',
                 overflow: 'hidden',
-                background: `url(${imgUrl}) center/cover no-repeat`,
                 boxShadow: '0 8px 24px rgba(0,0,0,0.06)',
                 transition: 'transform 0.3s ease',
                 cursor: 'pointer'
@@ -73,7 +72,18 @@ export default function Portfolio() {
               onMouseOver={e => e.currentTarget.style.transform = 'scale(1.03)'}
               onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
               onClick={() => setSelectedImage(imgUrl)}
-              />
+              >
+                <img 
+                  src={imgUrl} 
+                  alt={`(주)채온 광고물부착방지물 부착방지시트 시공사례 현장 사진 ${idx + 1}`} 
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block'
+                  }}
+                />
+              </div>
             ))
           )}
         </div>
