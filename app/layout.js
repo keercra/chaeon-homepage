@@ -1,19 +1,16 @@
-import Link from 'next/link';
 import Header from './components/Header';
+import { SITE_URL, organization } from './lib/seo';
 import './globals.css';
 
 export const metadata = {
-  title: '(주)채온 - 광고물부착방지물(돌출형, 시트형) 전문 기업',
-  description: '경기도 양평군에 위치한 광고물부착방지물(육각패턴시트, 돌출형, 시트형) 등 제품 시공 및 제작 전문 기업 채온 홈페이지입니다.',
-  keywords: '채온, 광고물부착방지, 전봇대광고방지, 돌출형방지물, 시트형방지물, 불법광고물, 양평군, 시공사례',
-  openGraph: {
-    title: '(주)채온 - 광고물부착방지물 전문 기업',
-    description: '채온의 특별한 기술력으로 깨끗한 거리를 만듭니다.',
-    url: 'https://chae-on.com',
-    siteName: '채온',
-    images: [],
-    locale: 'ko_KR',
-    type: 'website',
+  metadataBase: new URL(SITE_URL),
+  title: '(주)채온 | 광고물부착방지물·부착방지시트 제작 및 시공',
+  description: '광고물부착방지물과 육각패턴 부착방지시트 전문 기업 채온입니다. 돌출형·시트형·함체형 제품, 시공사례와 견적 문의를 안내합니다.',
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || undefined,
+    other: process.env.NEXT_PUBLIC_NAVER_VERIFICATION
+      ? { 'naver-site-verification': process.env.NEXT_PUBLIC_NAVER_VERIFICATION }
+      : undefined,
   },
 };
 
@@ -21,13 +18,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko">
       <head>
-        {/* 검색엔진 소유권 인증 메타태그 (Vercel 환경변수 연동) */}
-        {process.env.NEXT_PUBLIC_NAVER_VERIFICATION && (
-          <meta name="naver-site-verification" content={process.env.NEXT_PUBLIC_NAVER_VERIFICATION} />
-        )}
-        {process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION && (
-          <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION} />
-        )}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organization).replace(/</g, '\\u003c') }}
+        />
 
         {/* 무단 우클릭 및 드래그 복사 방지 스크립트 */}
         <script
