@@ -31,6 +31,11 @@ export default function Portfolio() {
   return (
     <div className="container" style={{ padding: '6rem 5%' }}>
       <h1 className="section-title">시공 <span>사례</span></h1>
+      <p className="page-intro">
+        전주·가로등·신호등 지주와 박스형 시설물에 적용한 채온의 광고물부착방지물 및
+        부착방지시트 시공 현장입니다. 제품별 특징은 <a href="/products">제품안내</a>에서,
+        현장별 시공 상담은 <a href="/contact">온라인 문의</a>에서 확인하세요.
+      </p>
       
       <section style={{ marginBottom: '6rem' }}>
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>

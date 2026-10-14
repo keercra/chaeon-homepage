@@ -1,12 +1,15 @@
-export const metadata = {
+import { pageMetadata } from '../lib/seo';
+
+export const metadata = pageMetadata({
   title: '회사소개 - 광고물부착방지 전문 기업 (주)채온',
   description: '다년간의 노하우와 특허를 보유한 광고물부착방지물 제작/시공 전문 기업 (주)채온의 소개, 오시는 길 및 연락처를 안내합니다.',
-  keywords: '채온, 채온 소개, 양평군 기업, 부착방지 특허, 오시는 길',
-};
+  path: '/about',
+});
 
 export default function About() {
   return (
     <div className="container responsive-container">
+      <h1 className="section-title">광고물부착방지 전문 기업 <span>채온 소개</span></h1>
       <div className="about-wrapper">
         
         <div className="about-intro-section">

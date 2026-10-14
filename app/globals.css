@@ -194,6 +194,45 @@ a {
   animation: slideUp 1s ease-out;
 }
 
+.hero .hero-eyebrow {
+  color: var(--accent-yellow);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.page-intro {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  color: var(--text-gray);
+  line-height: 1.8;
+  word-break: keep-all;
+}
+
+.page-intro a,
+.product-questions a {
+  color: var(--primary-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.product-detail-card[id] {
+  scroll-margin-top: 100px;
+}
+
+.product-questions {
+  margin-top: 4rem;
+  line-height: 1.8;
+}
+
+.product-questions h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-questions p {
+  color: var(--text-gray);
+}
+
 .products-preview {
   padding: 6rem 0;
   background-color: var(--background-white);
@@ -492,7 +531,7 @@ a {
   .main-nav {
     position: fixed;
     top: 0;
-    right: -100%; /* 숨김 */
+    right: 0;
     width: 260px;
     height: 100vh;
     background-color: var(--background-white);
@@ -500,13 +539,16 @@ a {
     flex-direction: column;
     padding: 7rem 2rem 3rem;
     gap: 1.8rem;
-    transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    clip-path: inset(0 0 0 100%);
+    visibility: hidden;
+    transition: clip-path 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), visibility 0.4s;
     z-index: 1050;
     align-items: flex-start;
   }
 
   .main-nav.open {
-    right: 0; /* 노출 */
+    clip-path: inset(0);
+    visibility: visible;
   }
 
   .main-nav a {
