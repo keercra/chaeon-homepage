@@ -1,8 +1,8 @@
-import { pageMetadata } from '../lib/seo';
+import { SITE_NAME, pageMetadata } from '../lib/seo';
 
 export const metadata = pageMetadata({
-  title: '회사소개 - 광고물부착방지 전문 기업 (주)채온',
-  description: '다년간의 노하우와 특허를 보유한 광고물부착방지물 제작/시공 전문 기업 (주)채온의 소개, 오시는 길 및 연락처를 안내합니다.',
+  title: `회사소개 - 광고물부착방지 전문 기업 ${SITE_NAME}`,
+  description: `다년간의 노하우와 특허를 보유한 광고물부착방지물 제작/시공 전문 기업 ${SITE_NAME}의 소개, 오시는 길 및 연락처를 안내합니다.`,
   path: '/about',
 });
 
@@ -26,7 +26,7 @@ export default function About() {
             />
           </div>
           <p className="about-intro-title">
-            <span style={{ color: 'var(--accent-orange)', fontWeight: 'bold' }}>(주)채온</span>은 다년간의 축적된 노하우와 독자적인 특허 기술을 바탕으로<br className="pc-only" /> 광고물부착방지물을 전문적으로 제작하고 시공하는 기업입니다.
+            <span style={{ color: 'var(--accent-orange)', fontWeight: 'bold' }}>{SITE_NAME}</span>은 다년간의 축적된 노하우와 독자적인 특허 기술을 바탕으로<br className="pc-only" /> 광고물부착방지물을 전문적으로 제작하고 시공하는 기업입니다.
           </p>
         </div>
 

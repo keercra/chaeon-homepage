@@ -1,11 +1,11 @@
 import Header from './components/Header';
-import { SITE_URL, organization } from './lib/seo';
+import { SITE_URL, SITE_NAME, organization } from './lib/seo';
 import './globals.css';
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
-  title: '(주)채온 | 광고물부착방지물·부착방지시트 제작 및 시공',
-  description: '광고물부착방지물과 육각패턴 부착방지시트 전문 기업 채온입니다. 돌출형·시트형·함체형 제품, 시공사례와 견적 문의를 안내합니다.',
+  title: `${SITE_NAME} | 광고물부착방지물·부착방지시트 제작 및 시공`,
+  description: `${SITE_NAME}은 광고물부착방지물과 육각패턴 부착방지시트를 제작·시공합니다. 돌출형·시트형·함체형 제품, 시공사례와 견적 문의를 안내합니다.`,
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || undefined,
     other: process.env.NEXT_PUBLIC_NAVER_VERIFICATION
@@ -48,7 +48,7 @@ export default function RootLayout({ children }) {
         <footer className="site-footer">
           <div className="container footer-container">
             <div className="footer-info">
-              <h3>(주)채온</h3>
+              <h3>{SITE_NAME}</h3>
               <p>본사: 경기도 양평군 강상면 학곡길 82</p>
               <p>대표전화: <a href="tel:02-851-1502">02-851-1502</a></p>
             </div>

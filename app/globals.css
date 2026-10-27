@@ -403,6 +403,229 @@ a {
   margin: 0;
 }
 
+/* 제품을 비교하고 시공 자료와 견적 정보를 확인하는 영역 */
+.page-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--text-gray);
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.page-breadcrumb a,
+.product-comparison a,
+.installation-grid a,
+.product-inline-link {
+  color: var(--primary-blue);
+}
+
+.page-breadcrumb a:hover,
+.product-comparison a:hover,
+.installation-grid a:hover,
+.product-inline-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.product-page-title {
+  word-break: keep-all;
+}
+
+.product-section-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-bottom: 3rem;
+}
+
+.product-section-links a {
+  border: 1px solid var(--border-color);
+  color: var(--primary-blue);
+  border-radius: 2rem;
+  padding: 0.65rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.product-section-links a:hover {
+  background: var(--primary-blue);
+  color: #fff;
+  border-color: var(--primary-blue);
+}
+
+.product-selection h2,
+.product-evidence h2,
+.product-quotation h2 {
+  color: var(--primary-blue);
+  font-size: 1.65rem;
+  line-height: 1.5;
+  word-break: keep-all;
+  margin-bottom: 1rem;
+}
+
+.product-selection > p,
+.product-evidence > p,
+.product-quotation > p {
+  color: var(--text-gray);
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+}
+
+.product-comparison-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+
+.product-comparison-wrap:focus-visible {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 4px;
+}
+
+.product-comparison {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.product-comparison caption {
+  text-align: left;
+  padding: 1rem 1.25rem;
+  font-size: 0.85rem;
+  color: var(--text-gray);
+}
+
+.product-comparison th,
+.product-comparison td {
+  padding: 1.15rem 1.25rem;
+  border-top: 1px solid var(--border-color);
+  vertical-align: top;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+
+.product-comparison thead {
+  background: var(--background-light);
+  color: var(--primary-blue);
+}
+
+.product-comparison tbody th {
+  width: 22%;
+}
+
+.product-evidence,
+.product-quotation {
+  margin-top: 4rem;
+  scroll-margin-top: 100px;
+}
+
+.installation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.installation-grid figure {
+  margin: 0;
+  min-width: 0;
+}
+
+.installation-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.installation-grid figcaption {
+  color: var(--text-gray);
+  font-size: 0.85rem;
+  line-height: 1.8;
+  margin-top: 0.65rem;
+}
+
+.product-inline-link {
+  font-weight: 600;
+}
+
+.product-quotation {
+  padding: 2.5rem;
+  background: var(--background-light);
+  border-radius: 16px;
+  border-left: 4px solid var(--accent-orange);
+}
+
+.quotation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.3rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.quotation-grid dt {
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin-bottom: 0.35rem;
+}
+
+.quotation-grid dd {
+  margin: 0;
+  color: var(--text-gray);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+
+.product-contact-button {
+  display: inline-block;
+  border-radius: 8px;
+  background: var(--primary-blue);
+  padding: 1rem 1.4rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.product-contact-button:hover {
+  background: var(--secondary-blue);
+}
+
+@media (max-width: 768px) {
+  .product-section-links {
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .product-section-links a {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.85rem;
+  }
+
+  .product-selection h2,
+  .product-evidence h2,
+  .product-quotation h2 {
+    font-size: 1.35rem;
+  }
+
+  .installation-grid,
+  .quotation-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .product-quotation {
+    padding: 1.5rem;
+  }
+
+  .product-contact-button {
+    font-size: 0.9rem;
+  }
+}
+
 /* 3. 회사 소개 페이지 (About Page) 반응형 스타일 */
 .about-wrapper {
   max-width: 800px;

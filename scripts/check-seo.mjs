@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 // npm run check:seo -- https://www.chae-on.com 으로 배포 후에도 같은 검증을 실행할 수 있습니다.
 const origin = process.argv[2] || 'http://127.0.0.1:3100';
 const canonicalOrigin = 'https://www.chae-on.com';
+const siteName = '주식회사 채온';
 const paths = ['/', '/about', '/products', '/portfolio', '/contact'];
 const titles = new Set();
 
@@ -32,26 +33,45 @@ for (const path of paths) {
   assert.doesNotMatch(robots ? attribute(robots, 'content') : '', /noindex/i, `${path}: 메타태그가 색인을 차단합니다.`);
   const title = head.match(/<title>(.*?)<\/title>/s)?.[1];
   assert.ok(title, `${path}: 제목이 필요합니다.`);
+  assert.ok(title.includes(siteName), `${path}: 검색 제목의 회사명이 일치해야 합니다.`);
   assert.ok(!titles.has(title), `${path}: 페이지 제목이 중복됩니다.`);
   titles.add(title);
   assert.ok(tags.some(tag => attribute(tag, 'name') === 'description' && attribute(tag, 'content')), `${path}: 설명이 필요합니다.`);
   assert.equal(new URL(attribute(tags.find(tag => attribute(tag, 'property') === 'og:url') || '', 'content')).href, canonicalOrigin + path);
+  assert.equal(attribute(tags.find(tag => attribute(tag, 'property') === 'og:site_name') || '', 'content'), siteName);
   assert.equal((html.match(/<h1\b/g) || []).length, 1, `${path}: 페이지 주제 제목이 하나 있어야 합니다.`);
-  const json = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1];
-  assert.ok(json, `${path}: 회사 구조화 데이터가 필요합니다.`);
-  const organization = JSON.parse(json);
-  assert.equal(organization['@type'], 'Organization');
+  const structuredData = [...html.matchAll(/<script\b(?=[^>]*\btype="application\/ld\+json")[^>]*>([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
+  const organizations = structuredData.filter(node => node['@type'] === 'Organization');
+  assert.equal(organizations.length, 1, `${path}: 회사 구조화 데이터가 하나 있어야 합니다.`);
+  const organization = organizations[0];
+  assert.equal(organization.name, siteName);
+  assert.equal(organization.legalName, siteName);
   assert.equal(organization.url, canonicalOrigin + '/');
+  assert.ok(html.includes(`<h3>${siteName}</h3>`), `${path}: 화면에도 회사명이 표시되어야 합니다.`);
+  if (path === '/') {
+    const websites = structuredData.filter(node => node['@type'] === 'WebSite');
+    assert.equal(websites.length, 1, '홈페이지에는 WebSite 데이터가 정확히 하나 있어야 합니다.');
+    assert.equal(websites[0].name, siteName);
+    assert.equal(websites[0].url, canonicalOrigin + '/');
+    assert.equal(websites[0].publisher['@id'], organization['@id']);
+    assert.ok(websites[0].alternateName.includes('채온'));
+  }
   if (['/', '/products', '/portfolio'].includes(path)) {
     const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] || '';
     assert.match(main, /광고물부착방지물/);
     assert.match(main, /부착방지시트/);
   }
   if (path === '/products') {
-    for (const id of ['embossing', 'sheet', 'box']) assert.ok(html.includes(`id="${id}"`));
+    for (const id of ['embossing', 'sheet', 'box', 'installation', 'quotation']) assert.ok(html.includes(`id="${id}"`));
+    assert.ok(html.includes('<table'));
+    const breadcrumbs = structuredData.find(node => node['@type'] === 'BreadcrumbList');
+    assert.ok(breadcrumbs, '제품 페이지에 경로 정보가 필요합니다.');
+    assert.equal(breadcrumbs.itemListElement.at(-1).item, canonicalOrigin + path);
   }
   console.log(`PASS ${path}: 제목, 대표 주소, 수집 설정, 본문, 회사 정보`);
 }
+
+console.log('PASS 사이트 이름: 홈페이지 WebSite·회사명·공유 이름 일치');
 
 const { response: sitemapResponse, html: sitemap } = await get('/sitemap.xml');
 assert.equal(sitemapResponse.status, 200);
