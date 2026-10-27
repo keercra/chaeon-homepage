@@ -1,23 +1,9 @@
 import { NextResponse } from 'next/server';
-import { put, list, del } from '@vercel/blob';
+import { put, del } from '@vercel/blob';
+import { listPortfolioImages } from '../../lib/portfolio-images';
 
 export async function GET() {
-  try {
-    // Vercel Blob에 있는 모든 파일 조회
-    const { blobs } = await list();
-    
-    // 시공 이미지 확장자 필터링
-    const images = blobs
-      .filter(blob => /\.(jpg|jpeg|png|gif|webp)$/i.test(blob.pathname))
-      .map(blob => blob.url);
-      
-    // 최신 업로드 사진이 상단에 뜨도록 역순 정렬
-    return NextResponse.json({ images: images.reverse() });
-  } catch (error) {
-    console.error('Vercel Blob List Error:', error);
-    // Vercel 토큰 세팅이 안 된 로컬 개발 초기 상태일 경우 빈 리스트 반환하여 오류 방지
-    return NextResponse.json({ images: [] });
-  }
+  return NextResponse.json({ images: await listPortfolioImages() });
 }
 
 export async function POST(request) {
