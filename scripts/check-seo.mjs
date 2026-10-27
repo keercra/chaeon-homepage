@@ -60,9 +60,17 @@ for (const path of paths) {
     const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1] || '';
     assert.match(main, /광고물부착방지물/);
     assert.match(main, /부착방지시트/);
+    if (['/', '/products'].includes(path)) {
+      // Next의 hydration 데이터가 아닌, 검색 로봇과 방문자가 읽는 본문을 검사합니다.
+      const visibleText = main.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, '').replace(/<[^>]+>/g, '');
+      for (const keyword of ['부착방지시트', '부착방지판', '광고물부착방지물', '부착방지', '광고물']) {
+        assert.ok(visibleText.includes(keyword), `${path}: ${keyword} 관련 설명이 본문에 필요합니다.`);
+      }
+      assert.ok(main.includes('href="/products#board-guide"') || main.includes('href="#board-guide"'));
+    }
   }
   if (path === '/products') {
-    for (const id of ['embossing', 'sheet', 'box', 'installation', 'quotation']) assert.ok(html.includes(`id="${id}"`));
+    for (const id of ['embossing', 'sheet', 'board-guide', 'box', 'installation', 'quotation']) assert.ok(html.includes(`id="${id}"`));
     assert.ok(html.includes('<table'));
     const breadcrumbs = structuredData.find(node => node['@type'] === 'BreadcrumbList');
     assert.ok(breadcrumbs, '제품 페이지에 경로 정보가 필요합니다.');

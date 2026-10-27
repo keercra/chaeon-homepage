@@ -457,6 +457,7 @@ a {
 }
 
 .product-selection h2,
+.product-terminology h2,
 .product-evidence h2,
 .product-quotation h2 {
   color: var(--primary-blue);
@@ -467,6 +468,7 @@ a {
 }
 
 .product-selection > p,
+.product-terminology > p,
 .product-evidence > p,
 .product-quotation > p {
   color: var(--text-gray);
@@ -518,10 +520,25 @@ a {
   width: 22%;
 }
 
+.product-terminology,
 .product-evidence,
 .product-quotation {
   margin-top: 4rem;
   scroll-margin-top: 100px;
+}
+
+.product-terminology h3 {
+  color: var(--text-dark);
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 0.65rem;
+  word-break: keep-all;
+}
+
+.product-terminology p a {
+  color: var(--primary-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .installation-grid {
@@ -607,6 +624,7 @@ a {
   }
 
   .product-selection h2,
+  .product-terminology h2,
   .product-evidence h2,
   .product-quotation h2 {
     font-size: 1.35rem;

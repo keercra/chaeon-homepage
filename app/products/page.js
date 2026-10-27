@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { SITE_NAME, pageMetadata, siteUrl } from '../lib/seo';
 
 export const metadata = pageMetadata({
-  title: `광고물부착방지물·부착방지시트 제품안내 | ${SITE_NAME}`,
-  description: `${SITE_NAME}의 광고물부착방지물을 비교하세요. 전주·가로등용 돌출형, 육각패턴 부착방지시트, 함체형 제품의 적용 시설물과 표면 특징, 시공 전후 사진 및 견적 문의를 안내합니다.`,
+  title: `광고물부착방지물·부착방지시트·부착방지판 안내 | ${SITE_NAME}`,
+  description: `전단지·스티커 등 광고물 부착방지를 위한 ${SITE_NAME}의 제품 안내입니다. 부착방지시트와 돌출형·함체형 광고물부착방지물의 특징, 부착방지판 검토 시 확인할 사항, 시공 전후 사진과 견적 문의를 확인하세요.`,
   path: '/products',
 });
 
@@ -31,7 +31,7 @@ export default function Products() {
       </p>
 
       <nav className="product-section-links" aria-label="제품과 시공 안내 바로가기">
-        <a href="#embossing">돌출형</a><a href="#sheet">부착방지시트</a><a href="#box">함체형</a><a href="#installation">시공 전후</a><a href="#quotation">견적 안내</a>
+        <a href="#embossing">돌출형</a><a href="#sheet">부착방지시트</a><a href="#board-guide">부착방지판 선택 안내</a><a href="#box">함체형</a><a href="#installation">시공 전후</a><a href="#quotation">견적 안내</a>
       </nav>
 
       <section className="product-selection" aria-labelledby="selection-title">
@@ -107,6 +107,36 @@ export default function Products() {
         </div>
         
       </div>
+
+      <section id="board-guide" className="product-terminology" aria-labelledby="board-guide-title">
+        <h2 id="board-guide-title">부착방지시트·부착방지판, 무엇을 확인해야 하나요?</h2>
+        <p>
+          전단지·벽보·스티커 등 광고물의 부착방지 제품을 찾고 계신가요?
+          제품 이름과 함께 설치할 시설물의 형태, 표면 상태, 필요한 규격을 확인하면
+          현장에 맞는 제품을 비교하기 쉽습니다.
+        </p>
+        <h3>부착방지시트: 표면 특징과 적용 시설물 확인</h3>
+        <p>
+          채온의 <a href="#sheet">육각패턴 부착방지시트</a>는 전주·가로등·신호등 지주 등
+          기둥형 시설물에 적용하는 시트형 제품입니다. 육각패턴과 특수 표면 처리가 특징이며,
+          설치할 구간의 크기와 기존 표면 상태를 확인해 시공을 상담합니다.
+        </p>
+        <h3>부착방지판: 필요한 형태와 규격 확인</h3>
+        <p>
+          부착방지판을 검토하고 있다면 단단한 판 형태가 필요한지, 기둥 외부를 감싸는 형태가
+          필요한지 먼저 확인해 주세요. 판의 재질·두께·고정 방식 등 요구 규격을 알려주시면
+          채온의 <a href="#embossing">돌출형 광고물부착방지물</a> 또는{' '}
+          <a href="#box">함체형 제품</a>으로 적용 가능한지 상담합니다.
+          시트형과 판형은 명칭만으로 같은 제품이라고 판단하기 어려우므로 요구 규격과 제품 사양을 함께 비교해야 합니다.
+        </p>
+        <h3>광고물 부착방지: 부착물과 현장 조건 확인</h3>
+        <p>
+          시설물에 반복해서 붙는 광고물이 종이 전단지인지, 접착식 스티커인지,
+          테이프로 고정하는 부착물인지 확인해 주세요. 시설물 종류와 기존 부착물 상태,
+          시공 범위를 함께 알려주시면 제품 선택과 시공 범위를 상담하는 데 도움이 됩니다.
+        </p>
+        <Link className="product-inline-link" href="/contact">시설물에 맞는 부착방지 제품 상담 →</Link>
+      </section>
 
       <section id="installation" className="product-evidence" aria-labelledby="installation-title">
         <h2 id="installation-title">광고물부착방지물 시공 전후</h2>
