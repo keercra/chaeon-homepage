@@ -3,7 +3,7 @@ import { SITE_NAME, pageMetadata, website } from './lib/seo';
 
 export const metadata = pageMetadata({
   title: `${SITE_NAME} | 광고물부착방지물·부착방지시트 제작·시공`,
-  description: `${SITE_NAME}은 전주·가로등·신호등과 함체의 불법광고물 부착을 방지하는 제품을 제작·시공합니다. 돌출형 광고물부착방지물과 육각패턴 부착방지시트, 시공사례 및 견적을 확인하세요.`,
+  description: `${SITE_NAME}은 전주·가로등·신호등과 함체의 광고물 부착방지를 위한 제품을 제작·시공합니다. 광고물부착방지물과 육각패턴 부착방지시트, 부착방지판 선택 안내, 시공사례 및 견적을 확인하세요.`,
   path: '/',
 });
 
@@ -27,6 +27,12 @@ export default function Home() {
 
       <section className="products-preview container">
         <h2 className="section-title">주요 제품 <span>안내</span></h2>
+        <p className="page-intro">
+          전단지·스티커 등 광고물의 부착방지를 위한 제품을 비교해 보세요.{' '}
+          <Link className="product-inline-link" href="/products#sheet">부착방지시트</Link>의 표면 특징과{' '}
+          <Link className="product-inline-link" href="/products#board-guide">부착방지판 선택 시 확인할 사항</Link>,{' '}
+          <Link className="product-inline-link" href="/products#embossing">돌출형 광고물부착방지물</Link>의 적용 시설물을 안내합니다.
+        </p>
         <div className="product-grid">
           <Link href="/products#embossing" className="product-card">
             <h3>광고물부착방지물(돌출형)</h3>
