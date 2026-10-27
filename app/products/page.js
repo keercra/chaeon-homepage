@@ -1,11 +1,27 @@
 import Link from 'next/link';
 import { SITE_NAME, pageMetadata, siteUrl } from '../lib/seo';
+import { sheetImage } from '../lib/site-images';
 
 export const metadata = pageMetadata({
   title: `광고물부착방지물·부착방지시트·부착방지판 안내 | ${SITE_NAME}`,
   description: `전단지·스티커 등 광고물 부착방지를 위한 ${SITE_NAME}의 제품 안내입니다. 부착방지시트와 돌출형·함체형 광고물부착방지물의 특징, 부착방지판 검토 시 확인할 사항, 시공 전후 사진과 견적 문의를 확인하세요.`,
   path: '/products',
+  image: sheetImage,
 });
+
+const productPage = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': siteUrl('/products#webpage'),
+  url: siteUrl('/products'),
+  name: metadata.title,
+  inLanguage: 'ko-KR',
+  primaryImageOfPage: {
+    '@type': 'ImageObject',
+    contentUrl: siteUrl(sheetImage.url),
+    name: sheetImage.alt,
+  },
+};
 
 const breadcrumbs = {
   '@context': 'https://schema.org',
@@ -20,6 +36,7 @@ export default function Products() {
   return (
     <div className="container responsive-container">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs).replace(/</g, '\\u003c') }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productPage).replace(/</g, '\\u003c') }} />
       <nav className="page-breadcrumb" aria-label="현재 위치">
         <Link href="/">{SITE_NAME}</Link><span aria-hidden="true">/</span><span aria-current="page">광고물부착방지물 제품안내</span>
       </nav>

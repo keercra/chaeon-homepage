@@ -8,7 +8,7 @@ export function siteUrl(path = '/') {
   return new URL(path, `${SITE_URL}/`).toString();
 }
 
-export function pageMetadata({ title, description, path }) {
+export function pageMetadata({ title, description, path, image = { url: '/images/함체형.jpg', alt: '채온 함체형 광고물부착방지물 시공사진' } }) {
   return {
     title,
     description,
@@ -20,13 +20,13 @@ export function pageMetadata({ title, description, path }) {
       siteName: SITE_NAME,
       locale: 'ko_KR',
       type: 'website',
-      images: [{ url: siteUrl('/images/함체형.jpg'), alt: '채온 함체형 광고물부착방지물 시공사진' }],
+      images: [{ url: siteUrl(image.url), alt: image.alt }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: [siteUrl('/images/함체형.jpg')],
+      images: [siteUrl(image.url)],
     },
   };
 }
