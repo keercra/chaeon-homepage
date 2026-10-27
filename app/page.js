@@ -1,21 +1,25 @@
 import Link from "next/link";
-import { pageMetadata } from './lib/seo';
+import { SITE_NAME, pageMetadata, website } from './lib/seo';
 
 export const metadata = pageMetadata({
-  title: '광고물부착방지물·부착방지시트 제작 및 시공 | (주)채온',
-  description: '채온은 전주·가로등·신호등과 함체의 불법광고물 부착을 방지하는 제품을 제작·시공합니다. 돌출형 광고물부착방지물과 육각패턴 부착방지시트, 시공사례 및 견적을 확인하세요.',
+  title: `${SITE_NAME} | 광고물부착방지물·부착방지시트 제작·시공`,
+  description: `${SITE_NAME}은 전주·가로등·신호등과 함체의 불법광고물 부착을 방지하는 제품을 제작·시공합니다. 돌출형 광고물부착방지물과 육각패턴 부착방지시트, 시공사례 및 견적을 확인하세요.`,
   path: '/',
 });
 
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(website).replace(/</g, '\\u003c') }}
+      />
       <section className="hero">
         <div className="container">
           <p className="hero-eyebrow">광고물부착방지물 · 부착방지시트 전문 제작·시공</p>
           <h1>깨끗한 거리, <br />안전한 환경을 만듭니다</h1>
           <p>
-            <span style={{ color: 'var(--accent-orange)', fontWeight: 'bold' }}>(주)채온</span>은 불법광고물부착방지를 위한 최적의 솔루션을 제공합니다.<br />
+            <span style={{ color: 'var(--accent-orange)', fontWeight: 'bold' }}>{SITE_NAME}</span>은 불법광고물부착방지를 위한 최적의 솔루션을 제공합니다.<br />
             <span style={{ color: 'yellow', fontWeight: 'bold' }}>업계 유일</span>의 <span style={{ color: 'yellow', fontWeight: 'bold' }}>육각형 돌기가 적용된 돌출형 제품</span>과 <span style={{ color: 'yellow', fontWeight: 'bold' }}>육각패턴이 적용된 시트형 제품</span>까지 완벽한 방지 기술을 만나보세요.
           </p>
         </div>

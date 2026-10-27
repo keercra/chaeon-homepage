@@ -1,21 +1,54 @@
 import Link from 'next/link';
-import { pageMetadata } from '../lib/seo';
+import { SITE_NAME, pageMetadata, siteUrl } from '../lib/seo';
 
 export const metadata = pageMetadata({
-  title: '광고물부착방지물·부착방지시트 제품안내 | (주)채온',
-  description: '전주·가로등용 돌출형 광고물부착방지물, 육각패턴 부착방지시트, 개폐기·변압기용 함체형 제품을 비교하세요. 적용 시설물, 표면 특징 및 시공 견적을 안내합니다.',
+  title: `광고물부착방지물·부착방지시트 제품안내 | ${SITE_NAME}`,
+  description: `${SITE_NAME}의 광고물부착방지물을 비교하세요. 전주·가로등용 돌출형, 육각패턴 부착방지시트, 함체형 제품의 적용 시설물과 표면 특징, 시공 전후 사진 및 견적 문의를 안내합니다.`,
   path: '/products',
 });
+
+const breadcrumbs = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: SITE_NAME, item: siteUrl() },
+    { '@type': 'ListItem', position: 2, name: '광고물부착방지물 제품안내', item: siteUrl('/products') },
+  ],
+};
 
 export default function Products() {
   return (
     <div className="container responsive-container">
-      <h1 className="section-title">광고물부착방지물·부착방지시트 <span>제품안내</span></h1>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs).replace(/</g, '\\u003c') }} />
+      <nav className="page-breadcrumb" aria-label="현재 위치">
+        <Link href="/">{SITE_NAME}</Link><span aria-hidden="true">/</span><span aria-current="page">광고물부착방지물 제품안내</span>
+      </nav>
+      <h1 className="section-title product-page-title">광고물부착방지물 · 부착방지시트 <span>제품안내</span></h1>
       <p className="page-intro">
         광고물부착방지물은 전주, 가로등, 신호등 지주와 같은 시설물에 불법 전단지나 스티커,
         테이프가 붙는 것을 방지하는 제품입니다. 채온은 돌출형 제품과 육각패턴 부착방지시트,
         박스형 시설물을 위한 함체형 제품을 제작하고 시공합니다.
       </p>
+
+      <nav className="product-section-links" aria-label="제품과 시공 안내 바로가기">
+        <a href="#embossing">돌출형</a><a href="#sheet">부착방지시트</a><a href="#box">함체형</a><a href="#installation">시공 전후</a><a href="#quotation">견적 안내</a>
+      </nav>
+
+      <section className="product-selection" aria-labelledby="selection-title">
+        <h2 id="selection-title">시설물에 맞는 광고물부착방지물 선택</h2>
+        <p>시설물의 형태와 설치 환경에 따라 적용 제품이 달라집니다. 기둥형 시설물과 박스형 시설물에 사용하는 제품을 비교해 보세요.</p>
+        <div className="product-comparison-wrap" role="region" aria-label="제품 비교표" tabIndex={0}>
+          <table className="product-comparison">
+            <caption>시설물 형태에 따른 광고물부착방지 제품 비교</caption>
+            <thead><tr><th scope="col">제품</th><th scope="col">적용 시설물</th><th scope="col">표면과 형태</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><a href="#embossing">돌출형</a></th><td>전주, 가로등, 신호등 지주 등 기둥형 시설물</td><td>표면에 형성된 미세한 육각형 돌기</td></tr>
+              <tr><th scope="row"><a href="#sheet">부착방지시트</a></th><td>전주, 가로등, 신호등 지주 등 기둥형 시설물</td><td>육각패턴과 특수 표면 처리를 적용한 시트</td></tr>
+              <tr><th scope="row"><a href="#box">함체형</a></th><td>개폐기, 변압기, 가압장 등 박스형·평면·곡면 시설물</td><td>시설물 표면에 맞춰 디자인을 적용하는 형태</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
       <div className="product-details-list">
         
@@ -25,7 +58,7 @@ export default function Products() {
           <div className="product-detail-flex">
             <img 
               src="/images/Product_Surface_Embossing.jpg" 
-              alt="돌출형 표면" 
+              alt="광고물부착방지물 돌출형 제품 표면의 육각형 돌기"
               className="product-detail-image" 
             />
             <p className="product-detail-text">
@@ -43,7 +76,7 @@ export default function Products() {
           <div className="product-detail-flex">
             <img 
               src="/images/Product_Surface_pattern_seat.jpg" 
-              alt="시트형 표면" 
+              alt="육각패턴 부착방지시트의 표면"
               className="product-detail-image" 
             />
             <p className="product-detail-text">
@@ -62,7 +95,7 @@ export default function Products() {
           <div className="product-detail-flex">
             <img 
               src="/images/함체형.jpg" 
-              alt="함체형" 
+              alt="박스형 시설물에 디자인을 적용한 함체형 광고물부착방지물"
               className="product-detail-image" 
             />
             <p className="product-detail-text">
@@ -74,6 +107,38 @@ export default function Products() {
         </div>
         
       </div>
+
+      <section id="installation" className="product-evidence" aria-labelledby="installation-title">
+        <h2 id="installation-title">광고물부착방지물 시공 전후</h2>
+        <p>기존 부착물이 남아 있는 시설물과 제품 적용 후의 외관을 비교해 보세요. 아래 사진은 채온 홈페이지에서 소개하고 있는 시공 전후 자료입니다.</p>
+        <div className="installation-grid">
+          <figure>
+            <a href="/images/시공전후1.png" target="_blank" rel="noopener noreferrer" aria-label="첫 번째 시공 전후 사진 크게 보기">
+              <img src="/images/시공전후1.png" width="878" height="752" loading="lazy" decoding="async" alt="기존 부착물이 남은 전주와 광고물부착방지물 적용 후 모습을 나란히 비교한 사진" />
+            </a>
+            <figcaption>기둥형 시설물의 시공 전후 비교 · <a href="/images/시공전후1.png" target="_blank" rel="noopener noreferrer">사진 크게 보기</a></figcaption>
+          </figure>
+          <figure>
+            <a href="/images/시공전후2.png" target="_blank" rel="noopener noreferrer" aria-label="두 번째 시공 전후 사진 크게 보기">
+              <img src="/images/시공전후2.png" width="878" height="752" loading="lazy" decoding="async" alt="전주 표면의 기존 전단지와 부착방지 제품 시공 후 외관을 비교한 사진" />
+            </a>
+            <figcaption>제품 적용 구간과 외관의 변화 · <a href="/images/시공전후2.png" target="_blank" rel="noopener noreferrer">사진 크게 보기</a></figcaption>
+          </figure>
+        </div>
+        <Link className="product-inline-link" href="/portfolio">광고물부착방지물 시공사례 더 보기 →</Link>
+      </section>
+
+      <section id="quotation" className="product-quotation" aria-labelledby="quotation-title">
+        <h2 id="quotation-title">제품 단가와 시공 견적 문의</h2>
+        <p>적용 제품과 현장 조건을 확인할 수 있도록, 아래 내용을 온라인 문의에 함께 남겨주세요.</p>
+        <dl className="quotation-grid">
+          <div><dt>시설물 종류</dt><dd>전주·가로등·신호등 지주·개폐기·변압기 등 시공 대상</dd></div>
+          <div><dt>크기와 수량</dt><dd>확인 가능한 시설물 규격과 시공을 원하는 수량</dd></div>
+          <div><dt>시공 위치</dt><dd>현장이 있는 지역과 설치 환경</dd></div>
+          <div><dt>희망 제품</dt><dd>돌출형·부착방지시트·함체형 중 검토하는 제품. 미정이면 상담 시 안내합니다.</dd></div>
+        </dl>
+        <Link className="product-contact-button" href="/contact">광고물부착방지물 견적 문의 →</Link>
+      </section>
 
       <section className="product-questions" aria-labelledby="product-questions-title">
         <h2 id="product-questions-title" className="product-detail-title">제품 선택과 시공 문의</h2>

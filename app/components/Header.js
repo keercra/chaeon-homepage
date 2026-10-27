@@ -1,6 +1,7 @@
 "use client";
 import { useState } from 'react';
 import Link from 'next/link';
+import { SITE_NAME } from '../lib/seo';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -8,10 +9,10 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="container header-container">
-        <Link href="/" style={{ display: 'flex', alignItems: 'center' }} onClick={() => setMenuOpen(false)}>
+        <Link href="/" aria-label={`${SITE_NAME} 홈`} style={{ display: 'flex', alignItems: 'center' }} onClick={() => setMenuOpen(false)}>
           <img 
             src="/images/logo.png" 
-            alt="(주)채온" 
+            alt={SITE_NAME}
             style={{ height: '45px', width: 'auto', display: 'block' }} 
             className="header-logo-img"
           />
