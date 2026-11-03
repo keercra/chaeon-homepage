@@ -163,6 +163,15 @@ export default function Products() {
         <Link className="product-inline-link" href="/contact">시설물에 맞는 부착방지 제품 상담 →</Link>
       </section>
 
+      <section className="product-registrations" aria-labelledby="registration-title">
+        <h2 id="registration-title">광고물부착방지물 · 부착방지시트 공개 등록자료</h2>
+        <p>제품 안내와 함께 채온 홈페이지에 공개한 등록자료를 확인할 수 있습니다. 명칭과 등록번호를 원본 등록증에서 확인해 보세요.</p>
+        <div className="registration-links">
+          <Link href="/about#utility-model"><strong>광고물 부착 방지용 시트</strong><span>실용신안등록 제20-0495941호 · 등록자료 보기 →</span></Link>
+          <Link href="/about#sheet-design"><strong>전주용 광고물부착방지시트</strong><span>디자인등록 제30-1155643호 · 등록자료 보기 →</span></Link>
+        </div>
+      </section>
+
       <section id="installation" className="product-evidence" aria-labelledby="installation-title">
         <h2 id="installation-title">광고물부착방지물 시공 전후</h2>
         <p>기존 부착물이 남아 있는 시설물과 제품 적용 후의 외관을 비교해 보세요. 아래 사진은 채온 홈페이지에서 소개하고 있는 시공 전후 자료입니다.</p>

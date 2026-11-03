@@ -485,6 +485,7 @@ a {
 }
 
 .product-selection h2,
+.product-registrations h2,
 .product-terminology h2,
 .product-evidence h2,
 .product-quotation h2 {
@@ -496,6 +497,7 @@ a {
 }
 
 .product-selection > p,
+.product-registrations > p,
 .product-terminology > p,
 .product-evidence > p,
 .product-quotation > p {
@@ -549,6 +551,7 @@ a {
 }
 
 .product-terminology,
+.product-registrations,
 .product-evidence,
 .product-quotation {
   margin-top: 4rem;
@@ -561,6 +564,76 @@ a {
   line-height: 1.6;
   margin-bottom: 0.65rem;
   word-break: keep-all;
+}
+
+.registration-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.registration-links a {
+  display: block;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.4rem;
+  line-height: 1.85;
+}
+
+.registration-links strong,
+.registration-links span {
+  display: block;
+}
+
+.registration-links strong {
+  color: var(--primary-blue);
+}
+
+.registration-links span {
+  margin-top: 0.5rem;
+  color: var(--text-gray);
+  font-size: 0.9rem;
+}
+
+.registration-links a:hover {
+  border-color: var(--primary-blue);
+}
+
+.registration-heading,
+.registration-record[id] {
+  scroll-margin-top: 100px;
+}
+
+.registration-heading {
+  color: var(--primary-blue);
+  font-size: 1.6rem;
+  margin: 3rem 0 1rem;
+}
+
+.registration-intro {
+  color: var(--text-gray);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.registration-record h3 {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 0.7rem;
+}
+
+.registration-record p,
+.registration-record a {
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.registration-record a {
+  display: inline-block;
+  color: var(--primary-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin-top: 0.8rem;
 }
 
 .product-terminology p a {
@@ -652,6 +725,7 @@ a {
   }
 
   .product-selection h2,
+  .product-registrations h2,
   .product-terminology h2,
   .product-evidence h2,
   .product-quotation h2 {
@@ -659,6 +733,7 @@ a {
   }
 
   .installation-grid,
+  .registration-links,
   .quotation-grid {
     grid-template-columns: minmax(0, 1fr);
   }
