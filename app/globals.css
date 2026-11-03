@@ -433,6 +433,34 @@ a {
   word-break: keep-all;
 }
 
+.sheet-product-title {
+  word-break: keep-all;
+}
+
+.sheet-product-guide {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.sheet-product-guide h3 {
+  color: var(--primary-blue);
+  font-size: 1.15rem;
+  margin-bottom: 0.6rem;
+}
+
+.sheet-product-guide p {
+  color: var(--text-gray);
+  line-height: 1.85;
+  margin-top: 0.6rem;
+}
+
+.sheet-product-guide a {
+  color: var(--primary-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .product-section-links {
   display: flex;
   flex-wrap: wrap;

@@ -3,8 +3,8 @@ import { SITE_NAME, pageMetadata, siteUrl } from '../lib/seo';
 import { sheetImage } from '../lib/site-images';
 
 export const metadata = pageMetadata({
-  title: `광고물부착방지물·부착방지시트·부착방지판 안내 | ${SITE_NAME}`,
-  description: `전단지·스티커 등 광고물 부착방지를 위한 ${SITE_NAME}의 제품 안내입니다. 부착방지시트와 돌출형·함체형 광고물부착방지물의 특징, 부착방지판 검토 시 확인할 사항, 시공 전후 사진과 견적 문의를 확인하세요.`,
+  title: `부착방지시트·광고물부착방지물·부착방지판 안내 | ${SITE_NAME}`,
+  description: `${SITE_NAME}의 부착방지시트 제작·시공 안내입니다. 전주·가로등·신호등 지주용 육각패턴시트와 돌출형·함체형 광고물부착방지물의 특징을 비교하세요. 부착방지판 선택 안내, 실제 시공 전후 사진과 견적 상담 정보를 확인할 수 있습니다.`,
   path: '/products',
   image: sheetImage,
 });
@@ -40,27 +40,27 @@ export default function Products() {
       <nav className="page-breadcrumb" aria-label="현재 위치">
         <Link href="/">{SITE_NAME}</Link><span aria-hidden="true">/</span><span aria-current="page">광고물부착방지물 제품안내</span>
       </nav>
-      <h1 className="section-title product-page-title">광고물부착방지물 · 부착방지시트 <span>제품안내</span></h1>
+      <h1 className="section-title product-page-title">부착방지시트 · 광고물부착방지물 <span>제품안내</span></h1>
       <p className="page-intro">
-        광고물부착방지물은 전주, 가로등, 신호등 지주와 같은 시설물에 불법 전단지나 스티커,
-        테이프가 붙는 것을 방지하는 제품입니다. 채온은 돌출형 제품과 육각패턴 부착방지시트,
-        박스형 시설물을 위한 함체형 제품을 제작하고 시공합니다.
+        부착방지시트는 전주·가로등·신호등 지주 등의 시설물에 전단지·스티커·테이프가 붙는 것을
+        방지하기 위해 적용하는 시트형 광고물부착방지물입니다. 채온은 육각패턴과 특수 표면 처리를
+        적용한 부착방지시트, 돌출형 제품과 박스형 시설물을 위한 함체형 제품을 제작하고 시공합니다.
       </p>
 
       <nav className="product-section-links" aria-label="제품과 시공 안내 바로가기">
-        <a href="#embossing">돌출형</a><a href="#sheet">부착방지시트</a><a href="#board-guide">부착방지판 선택 안내</a><a href="#box">함체형</a><a href="#installation">시공 전후</a><a href="#quotation">견적 안내</a>
+        <a href="#sheet">부착방지시트</a><a href="#embossing">돌출형</a><a href="#board-guide">부착방지판 선택 안내</a><a href="#box">함체형</a><a href="#installation">시공 전후</a><a href="#quotation">견적 안내</a>
       </nav>
 
       <section className="product-selection" aria-labelledby="selection-title">
-        <h2 id="selection-title">시설물에 맞는 광고물부착방지물 선택</h2>
+        <h2 id="selection-title">부착방지시트와 광고물부착방지물 비교</h2>
         <p>시설물의 형태와 설치 환경에 따라 적용 제품이 달라집니다. 기둥형 시설물과 박스형 시설물에 사용하는 제품을 비교해 보세요.</p>
         <div className="product-comparison-wrap" role="region" aria-label="제품 비교표" tabIndex={0}>
           <table className="product-comparison">
             <caption>시설물 형태에 따른 광고물부착방지 제품 비교</caption>
             <thead><tr><th scope="col">제품</th><th scope="col">적용 시설물</th><th scope="col">표면과 형태</th></tr></thead>
             <tbody>
-              <tr><th scope="row"><a href="#embossing">돌출형</a></th><td>전주, 가로등, 신호등 지주 등 기둥형 시설물</td><td>표면에 형성된 미세한 육각형 돌기</td></tr>
               <tr><th scope="row"><a href="#sheet">부착방지시트</a></th><td>전주, 가로등, 신호등 지주 등 기둥형 시설물</td><td>육각패턴과 특수 표면 처리를 적용한 시트</td></tr>
+              <tr><th scope="row"><a href="#embossing">돌출형</a></th><td>전주, 가로등, 신호등 지주 등 기둥형 시설물</td><td>표면에 형성된 미세한 육각형 돌기</td></tr>
               <tr><th scope="row"><a href="#box">함체형</a></th><td>개폐기, 변압기, 가압장 등 박스형·평면·곡면 시설물</td><td>시설물 표면에 맞춰 디자인을 적용하는 형태</td></tr>
             </tbody>
           </table>
@@ -69,30 +69,12 @@ export default function Products() {
 
       <div className="product-details-list">
         
-        {/* 01. 돌출형 */}
-        <div id="embossing" className="product-detail-card bg-light">
-          <h2 className="product-detail-title">01. 광고물부착방지물(돌출형)</h2>
-          <div className="product-detail-flex">
-            <img 
-              src="/images/Product_Surface_Embossing.jpg" 
-              alt="광고물부착방지물 돌출형 제품 표면의 육각형 돌기"
-              className="product-detail-image" 
-            />
-            <p className="product-detail-text">
-              ● 전주 및 가로등, 신호등 지주 등 기둥형 구조물에 적합한 제품입니다. <br />
-              ● 육각형의 미세한 돌기가 표면에 형성되어 있어 불법 전단지, 스티커, 테이프 등이 부착되지 않도록 합니다.<br />
-              ● 특수 표면 처리 기법을 적용하여 오염 및 탈색에 강하고, 반영구적으로 사용할 수 있습니다.<br /><br />
-              <strong>특징:</strong> 돌출형, 외부 충격에 강함, 반영구적 수명
-            </p>
-          </div>
-        </div>
-
-        {/* 02. 시트형 */}
+        {/* 01. 시트형 */}
         <div id="sheet" className="product-detail-card border-card">
-          <h2 className="product-detail-title">02. 부착방지시트(육각패턴시트)</h2>
+          <h2 className="product-detail-title sheet-product-title">01. 부착방지시트 (육각패턴시트)</h2>
           <div className="product-detail-flex">
             <img 
-              src="/images/Product_Surface_pattern_seat.jpg" 
+              src="/images/Product_Surface_pattern_seat.jpg"
               alt="육각패턴 부착방지시트의 표면"
               className="product-detail-image" 
             />
@@ -102,6 +84,32 @@ export default function Products() {
               ● 육각형 모양의 패턴을 적용하여 시트의 표면을 입체적으로 디자인하여 심미성을 더함과 동시에 스크래치 등에 강하도록 설계하였습니다.<br />
               ● 특수 표면 처리 기법을 적용하여 스티커, 테이프 등이 붙지 않고 오염 및 탈색에 강합니다.<br /><br />
               <strong>특징:</strong> 시트형, 육각모양패턴
+            </p>
+          </div>
+          <div className="sheet-product-guide">
+            <h3>부착방지시트 시공 전 확인할 사항</h3>
+            <p>
+              시공할 시설물의 종류, 확인 가능한 크기와 수량, 기존 전단지·스티커의 부착 상태를
+              알려주세요. 현장 조건에 맞춰 제품 적용과 시공 범위를 상담합니다.
+            </p>
+            <p><a href="#quotation">견적 문의 준비사항 보기</a> · <Link href="/contact">부착방지시트 제작·시공 상담</Link></p>
+          </div>
+        </div>
+
+        {/* 02. 돌출형 */}
+        <div id="embossing" className="product-detail-card bg-light">
+          <h2 className="product-detail-title">02. 광고물부착방지물(돌출형)</h2>
+          <div className="product-detail-flex">
+            <img
+              src="/images/Product_Surface_Embossing.jpg"
+              alt="광고물부착방지물 돌출형 제품 표면의 육각형 돌기"
+              className="product-detail-image"
+            />
+            <p className="product-detail-text">
+              ● 전주 및 가로등, 신호등 지주 등 기둥형 구조물에 적합한 제품입니다. <br />
+              ● 육각형의 미세한 돌기가 표면에 형성되어 있어 불법 전단지, 스티커, 테이프 등이 부착되지 않도록 합니다.<br />
+              ● 특수 표면 처리 기법을 적용하여 오염 및 탈색에 강하고, 반영구적으로 사용할 수 있습니다.<br /><br />
+              <strong>특징:</strong> 돌출형, 외부 충격에 강함, 반영구적 수명
             </p>
           </div>
         </div>
@@ -189,7 +197,7 @@ export default function Products() {
 
       <section className="product-questions" aria-labelledby="product-questions-title">
         <h2 id="product-questions-title" className="product-detail-title">제품 선택과 시공 문의</h2>
-        <h3>돌출형 광고물부착방지물과 부착방지시트는 어떻게 다른가요?</h3>
+        <h3>부착방지시트와 돌출형 광고물부착방지물은 어떻게 다른가요?</h3>
         <p>
           돌출형 제품은 표면의 미세한 육각형 돌기를 이용하고, 부착방지시트는 육각패턴과
           특수 표면 처리를 적용한 시트형 제품입니다. 두 제품 모두 전주·가로등·신호등 지주 등
@@ -200,7 +208,7 @@ export default function Products() {
           박스형 시설물에는 함체형 광고물부착방지물을 적용할 수 있습니다.
           개폐기·변압기와 가압장 등 평면이나 곡면이 있는 시설물의 조건을 확인해 상담합니다.
         </p>
-        <h3>제품 단가와 시공 견적은 어떻게 문의하나요?</h3>
+        <h3>부착방지시트 가격과 시공 견적은 어떻게 문의하나요?</h3>
         <p>
           시설물 종류, 크기, 수량과 시공 위치를 <Link href="/contact">온라인 견적 문의</Link>로
           알려주세요. 적용 제품과 현장 조건을 확인한 후 안내해 드립니다.
