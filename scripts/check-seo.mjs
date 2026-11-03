@@ -70,6 +70,8 @@ for (const path of paths) {
     }
   }
   if (path === '/products') {
+    assert.match(title, /^부착방지시트/);
+    assert.ok(html.indexOf('id="sheet"') < html.indexOf('id="embossing"'), '시트형 제품 설명이 먼저 나와야 합니다.');
     for (const id of ['embossing', 'sheet', 'board-guide', 'box', 'installation', 'quotation']) assert.ok(html.includes(`id="${id}"`));
     assert.ok(html.includes('<table'));
     const breadcrumbs = structuredData.find(node => node['@type'] === 'BreadcrumbList');
