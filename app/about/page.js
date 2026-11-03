@@ -37,31 +37,40 @@ export default function About() {
           가혹한 외부 환경에서도 뛰어난 내구성과 테이프/스티커에 대한 강력한 효과를 자랑합니다.
         </p>
 
-        {/* 특허 1 */}
-        <div className="about-cert-flex">
+        <h2 id="product-registrations" className="registration-heading">제품 관련 공개 등록자료</h2>
+        <p className="registration-intro">아래 명칭·번호·등록일은 채온 홈페이지에 공개한 등록증에 기재된 정보입니다.</p>
+
+        {/* 실용신안 등록자료 */}
+        <div id="utility-model" className="about-cert-flex registration-record">
           <div className="about-cert-img-wrap">
             <img 
               src="/images/실용신안등록증-편집.png" 
-              alt="(주)채온 광고물부착방지물 특허 실용신안등록증" 
+              alt="광고물 부착 방지용 시트 실용신안등록증, 제20-0495941호"
               className="about-cert-image" 
             />
           </div>
           <div className="about-cert-text">
-            <span style={{ color: 'var(--accent-orange)' }}>채온</span>은 타사와는 차별화된 기술력을 보유하고 있습니다.
+            <h3>실용신안등록 제20-0495941호</h3>
+            <p>고안의 명칭: 광고물 부착 방지용 시트</p>
+            <p>등록일: 2022년 9월 22일</p>
+            <a href="/images/실용신안등록증-편집.png" target="_blank" rel="noopener noreferrer">공개 실용신안등록증 원본 보기 →</a>
           </div>
         </div>
 
-        {/* 특허 2 */}
-        <div className="about-cert-flex">
+        {/* 디자인 등록자료 */}
+        <div id="sheet-design" className="about-cert-flex registration-record">
           <div className="about-cert-img-wrap">
             <img 
               src="/images/디자인등록증-편집.png" 
-              alt="(주)채온 육각패턴 부착방지시트 특허 디자인등록증" 
+              alt="전주용 광고물부착방지시트 디자인등록증, 제30-1155643호"
               className="about-cert-image" 
             />
           </div>
           <div className="about-cert-text">
-            <span style={{ color: 'var(--accent-orange)' }}>채온</span>은 업계 유일의 <span style={{ color: 'red' }}>육각패턴시트</span>를 보유하고 있습니다.
+            <h3>디자인등록 제30-1155643호</h3>
+            <p>디자인의 대상이 되는 물품: 전주용 광고물부착방지시트</p>
+            <p>등록일: 2022년 3월 15일</p>
+            <a href="/images/디자인등록증-편집.png" target="_blank" rel="noopener noreferrer">공개 디자인등록증 원본 보기 →</a>
           </div>
         </div>
 
